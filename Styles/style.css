@@ -160,28 +160,37 @@ main{
 
 }
 .form-buscador{
+    width: 100%;
     display: flex;
     justify-content: space-between;
-}
-.item-busqueda{
-    display: flex;
-    margin: 0;
     
 }
-.item-busqueda img{
-    width: 15.8px;
-    height: 15.8px;
-    color: #9CAFC3;
-    margin: 0;
+.form-buscador img{
+    width: 20px;
+    height: 20px;
 }
-.item-busqueda p{
+
+.item-busqueda{
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     text-align: left;
     color: #9CAFC3;
     margin-left: 5%;
 }
-
+.lista-sugerencias{
+    list-style: none;
+}
+.item-busqueda{
+    background-image: url("../assets/icon-search-modo-noct.svg");
+    background-position: 0 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-left: 2em;
+    margin: 0;
+}
+#search::-webkit-search-cancel-button{
+    display: none;
+}
 #search{
     border: none;
     width: 215px;
@@ -228,11 +237,11 @@ main{
 }
 .contenedor-gifs-buscados{
     display: grid;
+    position: relative;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     grid-gap: 20px;
-   
-}
+   }
 
 .contenedor-gifs-buscados img{
     width: 156px;
@@ -249,12 +258,26 @@ main{
     font-size: 13px;
     font-weight: 700;
 }
+.busqueda-sin-resultado{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin: 10% 0;
+}
+.busqueda-sin-resultado h3{
+    font-family: 'Montserrat', sans-serif;
+    color: #50E3C2;
+    line-height: 25px;
+    font-size: 22px;
+    margin: 40px 0;
+}
 /*Seccion Trending*/
 .seccion-trending{
     background-color: #F3F5F8;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 .seccion-trending h2{
     color: #572EE5;
@@ -282,6 +305,34 @@ main{
     height: 187px;
     padding: 22px;
 }
+/*Favoritos*/
+.seccion-favoritos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 4vh;
+    margin-bottom: 10%;
+}
+.titulo-favoritos{
+    font-family: 'Montserrat', sans-serif;
+    color: #572EE5;
+}
+.sin-favoritos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sin-favoritos img{
+    width: 150px;
+}
+.mensaje-favoritos{
+    font-family: 'Montserrat', sans-serif;
+    color: #50E3C2;
+    text-align: center;
+    font-size: 22px;
+    width: 80%;
+}
 
 /*Footer*/
 
@@ -301,6 +352,146 @@ footer p{
 .redes-sociales{
     display: flex;
     width: 25%;
-    justify-content: space-between;
-    
+    justify-content: space-between;    
+}
+
+
+
+/*Overlay*/
+
+.gifOptions .removeFavBtn{
+    content: url("../assets/icon-fav-active.svg");
+    display: none;
+    margin: auto 0 0 auto;
+    padding: 10px 0 0 9px;
+    margin: 10px 10px 0 0;
+    background: white;
+    border: solid 0 white;
+    border-radius: 6px;
+    width: 22px;
+    height: 22px;
+}
+
+.gifOptions{
+    display: none;
+}
+.overlay{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    z-index: +500;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.overlay .close{
+    width: 15.2px;
+    height: 15.2px;
+    align-self: flex-start;
+    flex-basis: 100%;
+    margin: 66.4px 0 78.4px 79.6%;
+}
+
+.overlay .prevGif{
+    align-self: center;
+    flex-basis: 7%;
+    margin-left: auto;
+}
+
+.overlay .nextGif{
+    align-self: center;
+    flex-basis: 7%;
+    margin-right: auto;
+}
+
+
+.overlay .gifMax{
+    max-width: 50%;
+    height: auto;
+    margin: 0 auto 0 auto;
+}
+.overlay .prevGif, .overlay .nextGif, .trending .gifsTrendContainer .imgLeftArrow, .trending .gifsTrendContainer .imgRightArrow{
+    display: none;
+}
+
+.overlay .gifMaxUsername{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #000000;
+    padding: 27px 0 0 24.7%;
+}
+
+ 
+.overlay .maxFav, .overlay .removeFavBtn{
+    margin: 17px 0 0 30%;
+}
+
+.overlay .maxDownload{
+    align-self: flex-start;
+    float: left;
+    margin: 27px 0 0 21px;
+}
+
+.overlay .gifMaxTitle{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: #000000;
+    flex-basis: 100%;
+    padding-left: 24.7%;
+}
+
+.overlay .prevGif:hover{
+    content: url('../assets/button-slider-left-hover.svg');
+}
+
+.overlay .nextGif:hover{
+    content: url('../assets/Button-Slider-right-hover.svg');
+}
+
+.overlay .maxFav:hover{
+    content: url("../assets/icon-fav-hover.svg");
+}
+
+.overlay .maxFav, .overlay .removeFavBtn, .overlay .maxDownload {
+    border: solid 2px #CED7E1;
+    border-radius: 6px;
+}
+
+.overlay .maxFav:active{
+    content: url("../assets/icon-fav-active.svg");
+}
+
+.overlay .removeFavBtn{
+    content: url("../assets/icon-fav-active.svg");
+    display: none;
+    margin: auto 0 0 auto;
+    padding: 10px 0 0 9px;
+    margin: 27px 10px 0 40%;
+    width: 22px;
+    height: 22px;
+}
+
+.overlay .maxDownload:hover{
+    content: url("../assets/icon-download-hover.svg");
+}
+
+
+/*Favoritos*/
+.favsContainer{
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 20px;
+}
+.gif{
+    width: 156px;
+    height: 120px;
 }

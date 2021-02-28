@@ -15,8 +15,7 @@
             <div class="menu-responsive">
                 <a href="index.html">
                     <img src="assets/logo-mobile.svg" alt="Logo Mobile" class="logo-mobile">
-                </a>
-                <input type="checkbox" id="menu-desplegable">
+                </a>                <input type="checkbox" id="menu-desplegable">
                 <label for="menu-desplegable" class="menu-boton">           
                     <span id="span1"></span>
                     <span id="span2"></span>
@@ -24,7 +23,7 @@
                 </label>
                 <ul id="menu-lista">
                     <li><a>Modo Nocturno</a><hr></li>
-                    <li> <a href="favoritos.html">Favoritos</a><hr></li>
+                    <li> <a>Favoritos</a><hr></li>
                     <li> <a>Mis GIFOS</a><hr></li>                   
                 </ul>
             </div>
@@ -41,29 +40,21 @@
         </nav>
     </header>
     <main>
-        <section class="principal">
-            <h1>Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h1>
-            <img src="assets/ilustra_header.svg" alt="Ilustracion">
-            <div class="contenedor-buscador" id="contenedor-buscador">
-                <form class="form-buscador">
-                    <input type="image" src="assets/icon-search.svg" alt="icon search" class="busqueda-activa oculto" id="btn-busqueda-activa">
-                    <input type="search" placeholder="Busca GIFOS y más" id="search" autocomplete="off">
-                    <input type="image" id="submit" src="assets/icon-search.svg"/>
-                    <img src="assets/close.svg" alt="close" class="btn-cerrar-busqueda oculto" id="btn-cerrar busqueda">             
-                </form>
-                <ul class="lista-sugerencias"></ul>
+        <section class="seccion-favoritos">
+            <img class="corazon" src="assets/icon-favoritos.svg" alt="Corazon Favoritos">
+            <h2 class="titulo-favoritos">Favoritos</h2>
+            <div class="favsContent">
+                <div class="favsContainer"></div>
+                <div class="buttonContainerFavs">
+        
+                </div>    
             </div>
-            <h2>Trending:</h2>
-            <div class="palabras-trendings"></div>
-            <hr class="linea-busqueda">
-            <p class="palabra-buscada"></p>
-            <div class="contenedor-gifs-buscados"></div>
-            <button class="ver-mas">VER MÁS</button>
-            <div class="busqueda-sin-resultado">
-                
-                <img src="assets/icon-busqueda-sin-resultado.svg" alt="Ouch no results">
-                <h3>Intenta con otra búsqueda</h3>
-            </div>           
+            <div class="sin-favoritos">
+                <img src="assets/icon-fav-sin-contenido.svg" alt="Sin contenido">
+                <h2 class="mensaje-favoritos">"¡Guarda tu primer GIFO en Favoritos para que se muestre aqui!"</h2>
+            </div>  
+
+
         </section>
         <section class="seccion-trending">
             <h2>Trending GIFOS</h2>
@@ -82,7 +73,8 @@
             <p>© GIFOS 2020 All Rights Reserved.</p>
         </footer>
     </main>    
-    <script src="Scripts/script.js"></script>
+    
     <script src="Scripts/options.js"></script>
+    <script src="Scripts/favoritos.js"></script>
 </body>
 </html>
